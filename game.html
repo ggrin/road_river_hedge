@@ -1,0 +1,354 @@
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<html>
+    <head>
+      <script src="helpers.js"> </script>
+      <script src="player.js"> </script>
+      <script src="troop.js"> </script>
+      <script src="field.js"> </script>
+      <script src="vote.js">< </script>
+      <script src="ai.js">< </script>
+      
+      <script src="game.js"> </script>
+      <link rel="stylesheet" type="text/css" href="pannel.css" />
+      <link rel="stylesheet" type="text/css" href="menu.css" />
+      <link rel="stylesheet" type="text/css" href="score.css" />
+      <link rel="stylesheet" type="text/css" href="vote.css" />
+      <link rel="stylesheet" type="text/css" href="game.css" />
+
+    </head
+    <body>
+	<div id="game_container" style="display:none;background-color:gray">
+	  <div id="db"  style="display:none;">
+	    <div id="move_here_template">
+	      <table>
+		<tr></tr>
+		<tr>
+		  <td></td>
+		  <td>
+		    <span class="cards_left"> 0 </span>
+		  </td>
+		  <td></td>
+		</tr>
+		<tr></tr>
+		</table>
+	    </div>
+
+
+	    <div id="player_vote_template" >
+	      <table>
+		<tr>
+		  <td class="td_vote_name">
+		    <span class="player_name"> plyers name </span>
+		  </td><td class="td_vote_pic">
+		    <img src="pic/voted.png" style="display:none">
+		  </td>
+		</tr>
+	      </table>
+	    </div>
+
+	    <div id="player_template"  class="players_pannel">
+	      <block>
+		<input type="button" value="give up" class="give_up_button"/>
+		<span class="player_name" >
+		  player name 
+		</span> 
+		<img src="" 
+		     class="player_building" 
+		     onclick="toggle_element(this)"/>
+	      </block>
+	      
+	      <div class="pannel_building">
+		<form>
+		  <table >
+		    <tr>
+		      <td></td> 
+		      <th class="steps_amount_div">
+			<input type="radio" 
+			       class="steps_amount" 
+			       name="steps_" 
+			       value="1"
+			       > 
+			<img/>
+		      </th>
+		    </tr>
+		    <tr class="streets">
+		      <td>
+			<img src="pic/street_0_1.png" class="way_intable"/>
+		      <td style="text-align:center" class="way_cell_template">
+		      </td>
+		    </tr>
+		    <tr class="rivers">
+		      <td>
+			<img src="pic/river_0_1.png" class="way_intable"/>
+		      </td>
+		    </tr>
+		    <tr class="walls">
+		      <td>
+			<img src="pic/wall_0_1.png" class="way_intable"/>
+		      </td>
+		    </tr>
+		  </table>
+		</form>
+	      </div>
+	      <div class="pannel_vote">
+		<table>
+		  <tr>
+		    <td class="votes" align="middle"> 0</td>
+		    <td class="votes" align="middle"> 1</td>
+		    <td class="votes" align="middle"> 0</td>
+		    <td class="votes" align="middle"> 1</td>
+		    <td class="votes" align="middle"> 0</td>
+		    <td class="votes" align="middle"> 1</td>
+		    <td class="votes" align="middle"> 1</td>
+		  </tr>
+		  <tr>
+		    <td>
+		      <input type="image" src="pic/vote_-3.png"  class="vote_card"></input>
+		    </td>
+		    <td>
+		      <input type="image" src="pic/vote_-2.png"  class="vote_card"></input>
+		    </td>
+		    <td>
+		      <input type="image" src="pic/vote_-1.png"  class="vote_card"></input>
+		    </td>
+		    <td>
+		      <input type="image" src="pic/vote_0.png"  class="vote_card"></input>
+		    </td>
+		    <td>
+		      <input type="image" src="pic/vote_1.png"  class="vote_card"></input>
+		    </td>
+		    <td>
+		      <input type="image" src="pic/vote_2.png"  class="vote_card"></input>
+		    </td>
+		    <td>
+		      <input type="image" src="pic/vote_3.png"  class="vote_card"></input>
+		    </td>
+		  </tr>
+		</table>
+	      </div>
+	    </div>
+
+	    <div id="field_X_Y" class="field" style="position:absolute;">
+	      <img src="pic/empty.png" style="z-index:1;">  </img>
+	    </div>
+
+	    <div id="building_troop_template" class="trooper" >
+	      <img src="pic/building_troop.png" class="troop_pic" 
+		   onclick="if(interface_mode == 'arrows'){
+			      troop(NUM).show_arrows();
+			    } else if(interface_mode == 'fields'){
+	                      troop(NUM).show_destinations();
+			    }"
+		   />
+	      <div class="arrows" display="none">
+		
+		<img src="pic/arrow_left.png" style="position:absolute;left:-TILE_SIZEpx;top:0px;display:none" class="arrow" onclick="troop(NUM).make_move(0,-1)"/>
+		<img src="pic/arrow_right.png"  style="position:absolute;left:TILE_SIZEpx;top:0px;display:none" class="arrow" onclick="troop(NUM).make_move(0,1)"/>
+		<img src="pic/arrow_up.png" style="position:absolute;left:0px;top:-TILE_SIZEpx;display:none" class="arrow" onclick="troop(NUM).make_move(-1,0)"/>
+		<img src="pic/arrow_down.png" style="position:absolute;left:0px;top:TILE_SIZEpx;display:none" class="arrow" onclick="troop(NUM).make_move(1,0)"/>
+	      </div>
+	    </div>
+
+	    <div id="building_template" class="building_div">
+	      <img class="building" src="pic/TYPE.png">
+	      <h6 class="building_value">  </h6>
+	    </div>
+
+	  </div>
+	  <div id="pannel" >
+	  </div>
+	
+	  <div id="votes" >
+	    <div id="vote_now"> 
+	      <button onclick="lets_vote();">
+		<h3>click here or hit space</h3>
+		<span>If someone wants to vote</span>
+		<h6>(or press g to skip this vote)</h6>
+	      </button>
+	    </div>
+	    <div id="vote_ip" style="display:none">
+	    
+	    </div>
+	  </div>
+	</div>
+	<div id="menu" style="width:100%;" align="middle">
+	  <div  style="width:600px;">
+	    <table>
+	      <!-- <td></td> -->
+	      <td>
+		Welcome to the Game, read
+		<a href="rules.html"> the rules </a>
+		or simply click Start Game
+		<hr/>
+		<form onsubmit="event.preventDefault(); new_game(this);return false;" action="" name="config" align="middle">
+		  
+		  <fieldset name="players">
+		    <legend>players</legend>
+		    <table>
+		      <tr>
+			<td align="right">players total</td>
+			<td>
+			  <select  name="players_total" onchange="show_selected_players(this.value)">
+			    <option>1</option><!-- is playing alone realy an option? -->
+			    <option selected>2</option>
+			    <option>3</option>
+			    <option>4</option>
+			  </select>
+			</td>
+		      </tr>
+		      <tr style="display:table-row">
+			<td align="right"> Player 1 </td><td><input name="player_1_name"></td>
+			<td>
+			  <select name="player_1_role">
+			    <option selected>Human</option>
+			    <!--<option>remote Human</option>-->
+			    <option>ai player</option>
+			  </select>  
+			</td>
+		      </tr style="display:table-row">
+		      <tr >
+			<td align="right"> Player 2 </td><td><input name="player_2_name" ></td>
+			<td>
+			  <select name="player_2_role">
+			    <option selected>Human</option>
+			    <!--<option>remote Human</option>-->
+			    <option>ai player</option>
+			  </select>  
+			</td>		  
+		      </tr>
+		      <tr style="display:none">
+			<td align="right"> Player 3 </td><td><input name="player_3_name"></td>
+			<td>
+			  <select name="player_3_role">
+			    <option selected>Human</option>
+			    <!--<option>remote Human</option>-->
+			    <option>ai player</option>
+			  </select>  
+			</td>
+		      </tr>
+		      <tr style="display:none">
+			<td align="right"> Player 4 </td><td><input name="player_4_name"></td>
+			<td>
+			  <select name="player_4_role">
+			    <option selected>Human</option>
+			    <!--<option>remote Human</option>-->
+			    <option>ai player</option>
+			  </select>  
+			</td>
+		      </tr>
+		    </table>
+		  </fieldset>
+		  <table>
+		    <tr>
+		      <td align="right"> amount of voting cards </td>
+		      <td>
+			<input name="voting_cards">
+		      </td>
+		    </tr>
+
+		    <tr>
+		      <td align="right">max steps</td>
+		      <td>
+			<input name="max_steps">
+		      </td>
+		    </tr>
+		    <tr>
+		      <td align="right">voting timeout</td>
+		      <td>
+			<input name="voting_timeout">
+		      </td>
+		    </tr>
+		    <tr>
+		      <td align="right">max x</td>
+		      <td>
+			<input name="max_x">
+		      </td>
+		    </tr>
+		    <tr>
+		      <td align="right">max y</td>
+		      <td>
+			<input name="max_y">
+		      </td>
+		    </tr>
+		    <tr>
+		      <td align="right">num buildings</td>
+		      <td>
+			<input name="num_buildings">
+		      </td>
+		    </tr>
+		    <tr>
+		      <td align="right"> interface mode</td>
+		      <td>
+			<select name="interface_mode">
+			  <option>arrows</option>
+			  <option selected >fields</options>
+		    </tr>
+		  </table>
+		  <button > Start Game </button> 
+		</form>
+	      </td>
+	    </table>
+	  </div>
+	</div>
+	<div id="scores" align="middle">
+	  <h1 class="won"> Player : <span id="winners_name"></span> has won the game</h1> <h3 class="winner_gave_up"> although he gave up </h3>
+	  <h1 class="draw"> Draw : noone realy won! </h1>
+	  
+	  <div id="scores_player_1_name" class="score_div">
+	    <table> 
+	      <tr>
+		<td> <span class="players_name"> </span> </td>
+		<td> <img class="players_building"/> </td>
+	      </tr>
+	      <tr>
+		<td align="right">
+		  <span class="players_score"></span>
+		</td>
+	      </tr>
+	    </table>
+	  </div>
+	  <div id="scores_player_2_name" class="score_div">
+	    <table> 
+	      <tr>
+		<td> <span class="players_name"> </span> </td>
+		<td> <img class="players_building"/> </td>
+	      </tr>
+	      <tr>
+		<td align="right">
+		  <span class="players_score"></span>
+		</td>
+	      </tr>
+	    </table>
+	  </div>
+	  <div id="scores_player_3_name" class="score_div">
+	    <table> 
+	      <tr>
+		<td> <span class="players_name"> </span> </td>
+		<td> <img class="players_building"/> </td>
+	      </tr>
+	      <tr>
+		<td align="right">
+		  <span class="players_score"></span>
+		</td>
+	      </tr>
+	    </table>
+	  </div>
+	  <div id="scores_player_4_name" class="score_div">
+	    <table> 
+	      <tr>
+		<td> <span class="players_name"> </span> </td>
+		<td> <img class="players_building"/> </td>
+	      </tr>
+	      <tr>
+		<td align="right">
+		  <span class="players_score"></span>
+		</td>
+	      </tr>
+		  </table>
+	  </div>
+	</div>
+
+	
+    </body>
+</html>

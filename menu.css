@@ -1,0 +1,23 @@
+@charset "Utf-8";
+#menu > div{
+    background-color:rgb(101,165,42);
+    border:rgb(212,243,51) double 5px;
+    border-radius:60px;
+}
+#menu *{
+    color:rgb(212,243,51);
+}
+#menu form{
+    text-align:center;
+}
+#menu input{
+    background:rgb(111,175,52);
+}
+#menu select{
+    background:rgb(111,175,52);
+}
+#menu button{
+    background:lime;
+    border:black;
+    border-radius:30px;
+}

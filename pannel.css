@@ -1,0 +1,72 @@
+@charset "Utf-8";
+#pannel{
+    position:relative;
+    z-index:10;
+    float:left;
+    background-color:rgb(101,165,42);
+    border:coral groove 8px;
+    border-radius:30px
+}
+
+.players_pannel{
+    clear:left;
+    background-color:darkgreen;
+    border:orange double 4px;
+    border-radius:20px;
+    margin:6px;
+}
+.players_pannel > block {
+    line-height: 65px;
+    vertical-align: middle;
+}
+
+.players_pannel > block > img {
+    display:none;
+    line-height: 60px;
+    vertical-align: middle;
+    margin:0px
+}
+
+.players_pannel table th{
+    max-width:41px;
+}
+
+.players_pannel table td{
+    max-width:41px;
+}
+.players_pannel .player_name{
+    color:black;
+    font-variant:small-caps;
+    font-weight:bold;
+    font-size:1.3em;
+}
+.players_pannel .vote_card{
+    width:100%;
+    border:solid 1px;
+}
+
+#pannel .active .player_name{
+    color:rgb(163,32,32);
+}
+#pannel .active {
+    background-color:lime;
+}
+
+.players_pannel > div{
+    background:rgb(111,195,62);
+    border:darkorange 2px solid;
+    border-radius:20px;
+}
+.players_pannel input{
+    background:lime;
+    border:solid 2px;
+    border-radius: 20px;
+}
+
+.way_intable { 
+    /* zoom:0.44; */
+    width:100%;
+    height:1.5em;
+    font-variant:small-caps;
+    font-weight:bold; 
+}

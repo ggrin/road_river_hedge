@@ -1,0 +1,44 @@
+@charset "Utf-8";
+#scores {
+    display:none;
+    position:fixed;
+    top:20%;
+    left:20%;
+    z-index:11;
+    align-baseline:middle;
+    width:60%;
+    background-color:rgb(101,165,42);
+    border:12px double red;
+    border-radius:100px;
+}
+
+.winner_gave_up {
+    display:none;
+}
+
+.score_div {
+    width:10em;
+    display:none;
+    border:6px double orange;
+    border-radius:100px;
+    background-color:darkgreen;
+}
+.score_div table{
+    max-width:100%;
+    table-layout:fixed;
+}
+.score_div table tr:first-child > td:first-child{
+    max-width:6em;
+    min-width:6em;
+    text-align:center;
+    overflow:hidden;
+}
+.players_name {
+    font-size:1.3em;
+    color:blue;
+}
+
+.players_score {
+    font-size:1.7em;
+    color:red;
+}

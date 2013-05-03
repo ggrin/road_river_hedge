@@ -1,0 +1,60 @@
+@charset "Utf-8";
+
+.field{
+    border: black dotted 1px
+}
+.field .building_value{
+    position:absolute;
+    right:0px;
+    top:-20px;
+    color:orange;
+}
+.field .building_div{
+    position:absolute;
+    z-index:2;
+    top:0px;
+    left:0px;
+}
+.field .destroyed .building{
+    border-radius : 30px;
+    background-color : grey;
+    opacity : 0.5;
+}
+
+.active_trooper{
+    border: red double 10px;
+    border-radius: 60px;
+    top:-10px;
+    left:-10px;
+    position:absolute;
+    z-index:5;
+}
+.trooper{
+    top:0px;
+    left:0px;
+    position:absolute;
+    z-index:5;
+}
+.possible_move_marker{
+    border:blue 5px dotted; 
+    border-radius:30px;
+    left:0px;
+    top:0px;
+    width:54px;
+    height:54px;
+    position:absolute;
+    z-index:5;
+    color:blue;
+    background-color:plum;
+    opacity:0.5;
+}
+.possible_move_marker table{
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+    text-align:center;
+}
+
+.cards_left {
+    
+}

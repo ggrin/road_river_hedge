@@ -1,0 +1,63 @@
+* bugs
+** DONE playere colors aren't disapearing anymore
+    hide() ??, neineinein war im aufruf von toggle element
+** DONE crash after vote not
+   make the whole vote more stable
+** DONE vote disapears after timeout even if it begun
+   i think it occures when a move is done before the voting hide occured
+* config
+** DONE  player names
+** DONE waycards
+   make a pool, depedant on map size
+   max_x+max_y/4 => wall*2, river, way
+   randomize to way cards
+   pick one by random
+** DONE ai/remote/local player
+** TODO load game
+** TODO preset configs?
+
+* ai
+** DONE choose ai in config
+** DONE random ai to implement neccesary functions to interact with the game
+** TODO ai modes like rubywarior
+** TODO endangered fields
+   the scoore points are not accurate for clever play
+** TODO sane voteing
+** DONE create a set of helper functions
+*** DONE apply endangered own fields
+*** DONE heuristics by score
+*** DONE possible_moves()
+*** DONE split legal_move() into 
+**** DONE move_out_of_range
+**** DONE barrier
+**** DONE waycards available
+** DONE optmizing randomness to prevent realy stupid moves
+** DONE apply heuristics for movements
+
+* features
+** DONE ways in the corners
+** TODO savegame
+** DONE players should be able to give up
+*** DONE give up button and turns
+*** DONE grey out unplayers
+*** DONE votes
+    
+** DONE shall the game end when one player is unable to move
+   in game_over there is a test for possible_moves(next_player, true);
+   and yes
+* beautify
+** DONE menu table middle
+** DONE cool css stylesheets
+** nice pictures
+   vielleicht alles ein bisschen rainbow style mit tippis yurten und so
+   klo auf alle f'lle kompostklo turn
+   oder vl. so coffeeshop, ...
+** DONE ways not crossways
+** DONE score screen
+** DONE voteing widget   
+** DONE waytype pictures instead of names
+** DONE mayan or roman nummbers instead of numbernames
+* TODO multiyplayer
+  which technologie
+  remoteStorage
+  p2p

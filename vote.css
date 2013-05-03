@@ -1,0 +1,39 @@
+@charset "Utf-8";
+#votes{
+    display:none;
+    position:fixed;
+    top:40%;
+    left:20%;
+    text-align:center;
+    z-index:10;    
+    width:20%;
+    background-color:rgb(101,165,42);
+    border: 3px orange double;
+    border-radius:30px;
+}
+#vote_ip > div{
+    max-width:100%;
+    margin:10px;
+    alignment-baseline:middle;
+    height:60px;
+}
+#vote_ip table{
+    width:100%;
+}
+#vote_ip .td_vote_pic{
+    width:60px;
+}
+#vote_ip .td_vote_name{
+    text-align:center;
+}
+#vote_ip .player_name{
+    text-align:right;
+    margin-top:20px;
+}
+
+#vote_now > button{
+    width:100%;
+    background:lime;
+    border:double 2px;
+    border-radius: 20px;
+}
