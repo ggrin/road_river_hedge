@@ -26,6 +26,9 @@ function Troop(type) {
     this.type = type;
     this.num = troop_c++
     this.name = 'building_troop_'+this.num
+    this.x = null;
+    this.y = null;
+    
     troops[this.num] = this
     
     this.div = function(){ 

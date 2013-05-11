@@ -35,7 +35,7 @@ function Field(x,y){
 	//picture include
 	_x = _x ? Math.abs(_x) : 0;
 	_y = _y ? Math.abs(_y) : 0;
-	this.div().innerHTML += (_tile(pic(type+"_"+_x+"_"+_y),4));
+	this.div().innerHTML += (_tile(pic(type+"_"+_x+"_"+_y),4,'way'));
 	//set class of buildings to destroyed
 	if( this.building && this.building != 'starting_point'){
 	    this.div().getElementsByClassName("building_div")[0].className += " destroyed"
