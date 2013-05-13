@@ -19,7 +19,7 @@ var pannel;
 var vote_div;
 
 // globals
-var phase;
+var phase = 'out of game';
 
 window.onload = function (){
     var form = document.getElementById("menu").getElementsByTagName("form")[0]
@@ -29,8 +29,11 @@ window.onload = function (){
     form.max_x.value = max_x;
     form.max_y.value = max_y;
     form.num_buildings.value = num_buildings;
-    //new_game(document.forms.config);    
     
+    init_remoteStorage();
+    savegames_list();
+
+    //new_game(document.forms.config);    
 };
 
 function new_game(form){
@@ -42,7 +45,6 @@ function new_game(form){
     num_buildings = parseInt(form.num_buildings.value);
     players_total = parseInt(form.players_total.value);
     interface_mode = form.interface_mode.value;
-    hide(document.getElementById("menu"));
     start_game();    
 }
 
@@ -74,17 +76,14 @@ function dispense_waycards(){
 	}
     }
 }
-function start_game() {
+
+function init_game(){
+    hide(document.getElementById("menu"));
     game_container = document.getElementById("game_container");
     show(game_container);
     pannel = document.getElementById("pannel");
     pannel.style.left = tile_size*max_x+"px";
     vote_div = document.getElementById("votes"); 
-    draw_board();
-    place_buildings();
-    place_building_troops();
-    create_players();
-
     window.onkeypress = hot_keys_handler;
     if(interface_mode == 'fields'){
 	radios = document.getElementsByClassName("steps_amount")
@@ -92,7 +91,21 @@ function start_game() {
 	    radios[i].style.display = "none";
 	}
     }
+    save_and_load_div = document.all.save_and_load
+    save_and_load_div.getElementsByTagName("button")[0].style.display = ""
+    save_and_load_div.style.display = "none"
+    pannel.appendChild(save_and_load_div)
     phase = "move";
+}
+function start_game() {
+    init_game();
+
+    draw_board();
+    place_buildings();
+    place_building_troops();
+    create_players();
+
+    
     turn();
     return false;
 }
@@ -268,4 +281,5 @@ function hot_keys_handler(e){
     if(e.keyCode == 103){ //gG
 	move_now();
     }
+
 }

@@ -4,20 +4,24 @@
     border:rgb(212,243,51) double 5px;
     border-radius:60px;
 }
-#menu *{
+.menu *{
     color:rgb(212,243,51);
 }
 #menu form{
     text-align:center;
 }
-#menu input{
+.menu input{
     background:rgb(111,175,52);
 }
 #menu select{
     background:rgb(111,175,52);
 }
-#menu button{
+.menu button{
     background:lime;
     border:black;
     border-radius:30px;
+}
+
+#menu #save_and_load table{
+    width:100%
 }

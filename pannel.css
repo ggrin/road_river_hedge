@@ -70,3 +70,7 @@
     font-variant:small-caps;
     font-weight:bold; 
 }
+
+#pannel #save_and_load{
+    width:300px;
+}
